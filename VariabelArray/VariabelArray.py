@@ -1,12 +1,23 @@
-import numpy as np
+boolTurtle = False
+try:
+    import turtle as tt
+except ImportError:
+    boolTurtle = True
+boolNumpy = False
+try:
+    import numpy as np
+except ImportError:
+    boolNumpy = True
 
-rows = int(input('Hoeveel rijen in de array?\n'))
-invoer = input('Hoeveel kolomen in de array?\n')
-if (not len(invoer)):
-    cols = rows
+if boolTurtle:
+    rows = int(input('Hoeveel rijen en kolommen in de array?\n'))
 else:
-    cols = int(invoer)
-arr = np.zeros((rows, cols), dtype=int)
+    rows = int(tt.numinput("Invoer", "Hoeveel rijen en kolommen in de array", default=None, minval=0, maxval=60))
+cols = rows
+if boolNumpy:
+    arr = [[0 for i in range(cols)] for j in range(rows)]
+else:
+    arr = np.zeros((rows, cols), dtype=int)
 
 for rowWaarde in range(rows):
     for colWaarde in range(cols):
@@ -20,4 +31,9 @@ for rowWaarde in range(rows):
                     arr[rowWaarde][colWaarde] = 1
             else: # even kolommen
                 arr[rowWaarde][colWaarde] = 1
-print (arr)
+                
+if boolNumpy:
+    for row in arr:
+        print(row)
+else:
+    print (arr)
