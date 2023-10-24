@@ -15,21 +15,21 @@ cols = rows
 arr = np.zeros((rows, cols), dtype=int)
 
 #process
-for rowWaarde in range(rows):
-    for colWaarde in range(cols):
+for rowValue in range(rows):
+    for colValue in range(cols):
         changeValue = False
-        if (rowWaarde % 2): # odd rows
-            if not (colWaarde % 2): # even columns
-                if (colWaarde < rowWaarde):
+        if (rowValue % 2): # odd rows
+            if not (colValue % 2): # even columns
+                if (colValue < rowValue):
                     changeValue = True
         else: # even rows
-            if (colWaarde % 2): # odd columns
-                if (colWaarde > rowWaarde):
+            if (colValue % 2): # odd columns
+                if (colValue > rowValue):
                     changeValue = True
             else: # even columns
                 changeValue = True
         if (changeValue):
-            arr[rowWaarde][colWaarde] = 1
+            arr[rowValue][colValue] = 1
  
 #close                
 print (arr)
