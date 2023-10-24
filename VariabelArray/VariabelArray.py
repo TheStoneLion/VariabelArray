@@ -10,8 +10,7 @@ except ImportError: #import numpy failed
     exit()
 
 #init
-rows = int(tt.numinput("Input", "How many rows en columns in the array", default=10, minval=0, maxval=60))
-cols = rows
+cols = rows = int(tt.numinput("Input", "How many rows en columns in the array", default=10, minval=0, maxval=60))
 arr = np.zeros((rows, cols), dtype=int)
 
 #process
