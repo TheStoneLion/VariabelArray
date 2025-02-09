@@ -31,11 +31,17 @@ for rowValue in range(rows):
             arr[rowValue][colValue] = 1
  
 #close                
-print (arr)
+#print (arr)
 
 for rowValue in np.array([[0 if max(i, n - 1 - j) % 2 == 0 else 1 for j in range(n)] for i in range(n - 1, -1, -1)]):
     print (rowValue)
 
-print (np.array([[0 if max(i, n - 1 - j) % 2 == 0 else 1 for j in range(n)] for i in range(n - 1, -1, -1)]))
+print()
 
+arr2 = np.zeros((rows, cols), dtype=int)
+for i in range(n - 1, -1, -1):
+    for j in range(n):
+        arr2[j][i] = 0 if max(i, n - 1 - j) % 2 == 0 else 1
 
+for rowValue in arr2:
+    print (rowValue)
