@@ -10,38 +10,14 @@ except ImportError: #import numpy failed
     exit()
 
 #init
-cols = rows = int(tt.numinput("Input", "How many rows en columns in the array", default=10, minval=0, maxval=60))
-arr = np.zeros((rows, cols), dtype=int)
+rows = cols = int(tt.numinput("Input", "How many rows en columns in the array", default=10, minval=0, maxval=60))
+arr = np.empty((rows, cols), dtype=int)
 
 #process
-for rowValue in range(rows):
-    for colValue in range(cols):
-        changeValue = False
-        if (rowValue % 2): # odd rows
-            if not (colValue % 2): # even columns
-                if (colValue < rowValue):
-                    changeValue = True
-        else: # even rows
-            if (colValue % 2): # odd columns
-                if (colValue > rowValue):
-                    changeValue = True
-            else: # even columns
-                changeValue = True
-        if (changeValue):
-            arr[rowValue][colValue] = 1
- 
-#close                
-#print (arr)
+for row in range(rows):
+    for col in range(cols):
+        arr[row][col] = 0 if min(row, col) % 2 else 1
 
-for rowValue in np.array([[0 if min(i, j) % 2 else 1 for j in range(cols)] for i in range(rows)]):
-    print (rowValue)
-
-print()
-
-arr2 = np.zeros((rows, cols), dtype=int)
-for i in range(rows):
-    for j in range(cols):
-        arr2[i][j] = 0 if min(i, j) % 2 else 1
-
-for rowValue in arr2:
-    print (rowValue)
+#print
+for myRow in arr:
+    print (myRow)
