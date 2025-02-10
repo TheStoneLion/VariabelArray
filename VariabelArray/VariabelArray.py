@@ -16,8 +16,5 @@ arr = np.empty((rows, cols), dtype=int)
 #process
 for row in range(rows):
     for col in range(cols):
-        arr[row][col] = 0 if min(row, col) % 2 else 1
-
-#print
-for myRow in arr:
-    print (myRow)
+        arr[row][col] = 0 if min(row, col) % 2 else 1     
+    print (arr[row]) #print
