@@ -10,7 +10,7 @@ except ImportError: #import numpy failed
     exit()
 
 #init
-n = cols = rows = int(tt.numinput("Input", "How many rows en columns in the array", default=10, minval=0, maxval=60))
+cols = rows = int(tt.numinput("Input", "How many rows en columns in the array", default=10, minval=0, maxval=60))
 arr = np.zeros((rows, cols), dtype=int)
 
 #process
@@ -33,15 +33,15 @@ for rowValue in range(rows):
 #close                
 #print (arr)
 
-for rowValue in np.array([[0 if max(i, n - 1 - j) % 2 == 0 else 1 for j in range(n)] for i in range(n - 1, -1, -1)]):
+for rowValue in np.array([[0 if min(i, j) % 2 else 1 for j in range(cols)] for i in range(rows)]):
     print (rowValue)
 
 print()
 
 arr2 = np.zeros((rows, cols), dtype=int)
-for i in range(n - 1, -1, -1):
-    for j in range(n):
-        arr2[j][i] = 0 if max(i, n - 1 - j) % 2 == 0 else 1
+for i in range(rows):
+    for j in range(cols):
+        arr2[i][j] = 0 if min(i, j) % 2 else 1
 
 for rowValue in arr2:
     print (rowValue)
