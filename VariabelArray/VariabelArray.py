@@ -1,9 +1,9 @@
-try:
+try: #import turtle
     import turtle as tt
 except ImportError: #import turtle failed
     print("This software uses turtle.")
     exit()
-try:
+try: #import numpy
     import numpy as np
 except ImportError: #import numpy failed
     print("This software uses numpy.")
