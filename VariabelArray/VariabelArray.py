@@ -10,16 +10,14 @@ except ImportError as e: #import numpy failed
     exit(1)
 
 #init
-inputValue = tt.numinput("Input", "How big must the square be?", default=10, minval=1, maxval=60)
-if (inputValue.isnumeric()):
-    square = int()
-else:
-    print("No input; End of program")
+square = tt.numinput("Input", "How big must the square be?", default=10, minval=1, maxval=60)
+if square is None: #Check if input is cancelled
+    print("Input cancelled; End of program")
     exit(0)
 
 #process
-for row in range(square):
-    colArray = np.empty((square), dtype=int)
-    for col in range(square):
+for row in range(int(square)):
+    colArray = np.empty((int(square)), dtype=int)
+    for col in range(int(square)):
         colArray[col] = 0 if min(row, col) % 2 else 1     
     print (colArray) #print
