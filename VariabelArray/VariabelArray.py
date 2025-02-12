@@ -10,7 +10,12 @@ except ImportError as e: #import numpy failed
     exit(1)
 
 #init
-square = int(tt.numinput("Input", "How big must the square be?", default=10, minval=1, maxval=60))
+inputValue = tt.numinput("Input", "How big must the square be?", default=10, minval=1, maxval=60)
+if (inputValue.isnumeric()):
+    square = int()
+else:
+    print("No input; End of program")
+    exit(0)
 
 #process
 for row in range(square):
