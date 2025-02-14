@@ -1,8 +1,9 @@
 import time
-import matplotlib_inline as plt
+import matplotlib.pyplot as plt
+from numpy import matrix
 ttBool = True
 try: 
-    import turtle as tt #import turtle
+    import turtlew as tt #import turtle
 except ImportError as e: #import turtle failed
     ttBool = False
 try: 
@@ -60,12 +61,14 @@ else:
 
 
 #process
+matrix2 = np.array([])
 for row in range(square):
     colArray = np.empty((square), dtype=int)
     for col in range(square):
         colArray[col] = 0 if min(row, col) % 2 else 1    
         if ttBool:
             draw_square(colArray[col])
+    matrix2 = np.append(matrix2,colArray)
     if ttBool:
         tt.penup()
         tt.left(180)
@@ -77,5 +80,10 @@ for row in range(square):
     else:
         print (colArray) #print
 
-time.sleep(15)
+matrix2 = matrix(matrix2).reshape(square,square)
+
+plt.imshow(matrix2,cmap="hot")
+plt.axis('off')
+plt.show()
+
 
