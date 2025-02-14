@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from numpy import matrix
 ttBool = True
 try: 
-    import turtlew as tt #import turtle
+    import turtles as tt #import turtle
 except ImportError as e: #import turtle failed
     ttBool = False
 try: 
@@ -81,8 +81,10 @@ for row in range(square):
         print (colArray) #print
 
 matrix2 = matrix(matrix2).reshape(square,square)
+matrix90 = np.rot90(matrix2)
 
-plt.imshow(matrix2,cmap="hot")
+main_matrix = matrix2 + matrix90
+plt.imshow(main_matrix,cmap="hot")
 plt.axis('off')
 plt.show()
 
