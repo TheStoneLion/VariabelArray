@@ -1,6 +1,6 @@
 ttBool = True
 try: 
-    import turtles as tt #import turtle
+    import turtle as tt #import turtle
 except ImportError as e: #import turtle failed
     ttBool = False
 try: 
